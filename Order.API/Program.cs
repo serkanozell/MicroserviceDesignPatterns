@@ -18,7 +18,7 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 
 builder.Services.AddMassTransit(x =>
 {
-    x.UsingRabbitMq((contexti, cfg) =>
+    x.UsingRabbitMq((context, cfg) =>
     {
         cfg.Host(host: builder.Configuration.GetConnectionString("RabbitMQ"));
     });
