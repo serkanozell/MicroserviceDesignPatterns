@@ -12,7 +12,7 @@ using Order.API.Models;
 namespace Order.API.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20240102122803_initial")]
+    [Migration("20240110204002_initial")]
     partial class initial
     {
         /// <inheritdoc />
@@ -101,7 +101,8 @@ namespace Order.API.Migrations
                                 .HasForeignKey("OrderId");
                         });
 
-                    b.Navigation("Address");
+                    b.Navigation("Address")
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Order.API.Models.OrderItem", b =>

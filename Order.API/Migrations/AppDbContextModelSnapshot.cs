@@ -98,7 +98,8 @@ namespace Order.API.Migrations
                                 .HasForeignKey("OrderId");
                         });
 
-                    b.Navigation("Address");
+                    b.Navigation("Address")
+                        .IsRequired();
                 });
 
             modelBuilder.Entity("Order.API.Models.OrderItem", b =>
