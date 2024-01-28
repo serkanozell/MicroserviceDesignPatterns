@@ -16,7 +16,6 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddMassTransit(x =>
 {
     x.AddConsumer<OrderCreatedEventConsumer>();
-    x.AddConsumer<PaymentFailedEventConsumer>();
 
     x.UsingRabbitMq((context, cfg) =>
     {
@@ -25,11 +24,6 @@ builder.Services.AddMassTransit(x =>
         cfg.ReceiveEndpoint(RabbitMQSettingsConst.StockOrderCreatedEventQueueName, e =>
         {
             e.ConfigureConsumer<OrderCreatedEventConsumer>(context);
-        });
-
-        cfg.ReceiveEndpoint(RabbitMQSettingsConst.StockPaymentFailedEventQueueName, e =>
-        {
-            e.ConfigureConsumer<PaymentFailedEventConsumer>(context);
         });
     });
 });

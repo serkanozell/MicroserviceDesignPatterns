@@ -1,10 +1,11 @@
-﻿namespace Shared
+﻿using Shared.Interfaces;
+
+namespace Shared
 {
-    public class StockReservedEvent
+    public class StockReservedEvent(Guid correlationId) : IStockReservedEvent
     {
-        public int OrderId { get; set; }
-        public string BuyerId { get; set; }
-        public PaymentMessage PaymentMessage { get; set; }
-        public List<OrderItemMessage> OrderItems { get; set; } = new List<OrderItemMessage>();
+        public List<OrderItemMessage> OrderItems { get; set; }
+
+        public Guid CorrelationId { get; } = correlationId;
     }
 }
