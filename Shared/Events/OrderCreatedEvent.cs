@@ -1,6 +1,6 @@
 ﻿using Shared.Interfaces;
 
-namespace Shared
+namespace Shared.Events
 {
     public class OrderCreatedEvent(Guid correlationId) : IOrderCreatedEvent
     {

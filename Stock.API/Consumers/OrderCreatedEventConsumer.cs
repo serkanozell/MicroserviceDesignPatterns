@@ -1,6 +1,7 @@
 ﻿using MassTransit;
 using Microsoft.EntityFrameworkCore;
 using Shared;
+using Shared.Events;
 using Shared.Interfaces;
 using Stock.API.Models;
 
